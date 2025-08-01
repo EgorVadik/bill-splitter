@@ -1,0 +1,17 @@
+{
+  "name": "price-calc",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "inquirer": "^12.9.0",
+    "just-group-by": "^2.2.0"
+  }
+}
