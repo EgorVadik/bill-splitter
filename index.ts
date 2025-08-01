@@ -27,6 +27,7 @@ async function main() {
                 'Add person',
                 'List people',
                 'Remove person',
+                'Delete Last Entry',
                 'List Current Entries',
                 'Calculate For Each',
                 'List Previous Data',
@@ -219,6 +220,15 @@ async function main() {
                 JSON.stringify(filteredData, null, 2)
             )
             console.log(`${chalk.bold.green(name)} removed successfully`)
+            break
+        }
+        case 'Delete Last Entry': {
+            const exists = await fs.exists('data.json')
+            const data = exists ? await fs.readFile('data.json', 'utf-8') : '[]'
+            const parsedData: Data[] = JSON.parse(data)
+            parsedData.pop()
+            await fs.writeFile('data.json', JSON.stringify(parsedData, null, 2))
+            console.log('Last entry deleted successfully')
             break
         }
         case 'List Previous Data': {
